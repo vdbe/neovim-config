@@ -95,6 +95,16 @@ lspconfig.emmet_ls.setup(config({
       },
     }
 }))
+lspconfig.yamlls.setup(config({
+    settings = {
+        yaml = {
+            schemaStore = {
+                url = "https://www.schemastore.org/api/json/catalog.json",
+                enable = true,
+            }
+        }
+    },
+}))
 lspconfig.sumneko_lua.setup(config({
   settings = {
     Lua = {
