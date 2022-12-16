@@ -54,7 +54,7 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
     -- vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<space>f', function()
+    vim.keymap.set('n', '<space>bf', function()
         vim.lsp.buf.format { async = true }
     end, bufopts)
 
@@ -79,12 +79,14 @@ local lspconfig = require("lspconfig");
 
 lspconfig.pyright.setup(config())
 lspconfig.tsserver.setup(config())
---lspconfig.rust_analyzer.setup(config())
+lspconfig.rust_analyzer.setup(config())
 lspconfig.gopls.setup(config())
 lspconfig.html.setup(config())
 lspconfig.cssls.setup(config())
+lspconfig.clangd.setup(config())
 lspconfig.tailwindcss.setup(config())
 lspconfig.bashls.setup(config())
+lspconfig.csharp_ls.setup(config())
 lspconfig.emmet_ls.setup(config({
     filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
     init_options = {

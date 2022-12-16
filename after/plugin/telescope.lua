@@ -43,7 +43,8 @@ telescope.setup{
 }
 -- Search
 vim.api.nvim_set_keymap('n', '<leader><leader>', '<CMD>lua require("nobody.telescope-config").project_files()<CR>', { desc = 'Fuzzy search through the output of `git ls-files` command, respects .gitignore', noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<leader>F', '<cmd>lua require("telescope.builtin").find_files()<cr>', { desc = 'Find files in the current working directory', noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>F', '<cmd>lua require("telescope.builtin").find_files({hidden = true})<cr>', { desc = 'Find files in the current working directory', noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>lua require("telescope.builtin").find_files({no_ignore = true})<cr>', { desc = 'Find files in the current working directory including files in .gitignore', noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>sp', '<cmd>lua require("nobody.telescope-config").project_live_grep()<cr>', { desc = 'Live grep in the current working directory', noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>bb', '<cmd>lua require("telescope.builtin").buffers()<cr>', { desc = 'Find open buffer', noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fh', '<cmd>lua require("telescope.builtin").help_tags()<cr>', { desc = 'Search in the vim help files',  noremap = true, silent = true })
