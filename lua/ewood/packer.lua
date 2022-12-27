@@ -1,7 +1,7 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 -- Only required if you have packer configured as `opt`
---vim.cmd [[packadd packer.nvim]]
+vim.cmd [[packadd packer.nvim]]
 
 local ensure_packer = function()
     local fn = vim.fn
@@ -65,6 +65,7 @@ return require('packer').startup(function(use)
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
+    use "lukas-reineke/indent-blankline.nvim"
 
 
     use({
@@ -98,4 +99,6 @@ return require('packer').startup(function(use)
     if packer_bootstrap then
         require('packer').sync()
     end
+    require('packer').sync()
 end)
+
