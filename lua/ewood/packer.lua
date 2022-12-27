@@ -62,10 +62,12 @@ return require('packer').startup(function(use)
     })
 
     use {
-        "windwp/nvim-autopairs",
+        'windwp/nvim-autopairs',
         config = function() require("nvim-autopairs").setup {} end
     }
-    use "lukas-reineke/indent-blankline.nvim"
+    use 'lukas-reineke/indent-blankline.nvim'
+
+    use 'numToStr/Comment.nvim'
 
 
     use({
