@@ -11,12 +11,20 @@ lsp.ensure_installed({
     'sumneko_lua',
 })
 
+local cmp_sources = lsp.defaults.cmp_sources()
+
+table.insert(cmp_sources, {})
+
+lsp.setup_nvim_cmp({
+  sources = cmp_sources
+})
+
 lsp.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
     local bind = vim.keymap.set
 
     bind('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-    bind('n', '<leader>a', '<cmd>lua vim.lsp.buf.range_code_action()<cr>', opts)
+    bind('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
     bind('n', '<leader>bf', '<cmd>LspZeroFormat<cr>', opts)
     bind('v', '<leader>f', '<cmd>LspZeroFormat<cr>', opts)
     bind('n', '<space>tl', function()
