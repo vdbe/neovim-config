@@ -18,6 +18,9 @@ require('telescope').setup{
 local builtin = require('telescope.builtin')
 
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Lists files in your current working directory, respects .gitignore" })
+vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = "Lists previously open files" })
+vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = "Lists the results incl. multi-selections of the previous picker" })
+vim.keymap.set('n', '<leader>fm', builtin.marks, { desc = "Lists vim marks and their value" })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = "Search for a string in your current working directory and get results live as you type, respects .gitignore" })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Lists open buffers in current neovim instance" })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Lists available help tags" })
