@@ -1,3 +1,3 @@
 require('Comment').setup({
-    padding = false,
+  padding = false,
 })
