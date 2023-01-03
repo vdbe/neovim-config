@@ -79,13 +79,12 @@ return require('packer').startup(function(use)
 
   use({
     'lewis6991/gitsigns.nvim',
-    tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+    --tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
   })
 
   use({
     'p00f/nvim-ts-rainbow',
   })
-
 
   use 'simrat39/rust-tools.nvim'
   use({
@@ -95,6 +94,11 @@ return require('packer').startup(function(use)
     config = function()
       require('crates').setup()
     end,
+  })
+
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function() vim.fn["mkdp#util#install"]() end,
   })
 
 
