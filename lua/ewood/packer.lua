@@ -54,6 +54,7 @@ return require('packer').startup(function(use)
       { 'rafamadriz/friendly-snippets' },
     }
   }
+  use 'hrsh7th/cmp-cmdline'
   use({
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     config = function()
@@ -67,7 +68,7 @@ return require('packer').startup(function(use)
   use({
     "j-hui/fidget.nvim",
     config = function()
-      require("lsp_lines").setup()
+      require("fidget").setup()
     end,
   })
 
@@ -81,6 +82,8 @@ return require('packer').startup(function(use)
 
   use 'gpanders/editorconfig.nvim'
 
+  use 'p00f/godbolt.nvim'
+
 
   use({
     'nvim-lualine/lualine.nvim',
@@ -92,7 +95,8 @@ return require('packer').startup(function(use)
     --tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
   })
 
-  use 'simrat39/rust-tools.nvim'
+  --use 'simrat39/rust-tools.nvim'
+  use 'kdarkhan/rust-tools.nvim'
   use({
     'saecki/crates.nvim',
     --event = { "BufRead Cargo.toml" },

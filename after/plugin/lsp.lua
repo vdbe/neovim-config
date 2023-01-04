@@ -1,4 +1,5 @@
 local lsp = require('lsp-zero')
+local cmp = require('cmp')
 
 lsp.preset('recommended')
 
@@ -12,6 +13,9 @@ lsp.ensure_installed({
 })
 
 local cmp_sources = lsp.defaults.cmp_sources()
+local cmp_config = lsp.defaults.cmp_config({
+
+})
 
 table.insert(cmp_sources, {})
 
@@ -47,4 +51,29 @@ vim.diagnostic.config({
   severity_sort = true,
   virtual_text = true,
   virtual_lines = false,
+})
+
+cmp.setup(cmp_config)
+
+cmp.setup.cmdline('/', {
+  completion = {
+    completeopt = 'menu,menuone,noinsert,noselect'
+  },
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  },
+})
+
+
+cmp.setup.cmdline(':', {
+  completion = {
+    completeopt = 'menu,menuone,noinsert,noselect'
+  },
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  }),
 })
