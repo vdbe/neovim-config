@@ -60,10 +60,20 @@ return require('packer').startup(function(use)
       require("lsp_lines").setup()
     end,
   })
+  use({
+    'weilbith/nvim-code-action-menu',
+    cmd = 'CodeActionMenu',
+  })
+  use({
+    "j-hui/fidget.nvim",
+    config = function()
+      require("lsp_lines").setup()
+    end,
+  })
 
   use {
     'windwp/nvim-autopairs',
-    config = function() require("nvim-autopairs").setup {} end
+    config = function() require("nvim-autopairs").setup { check_ts = true } end
   }
   use 'lukas-reineke/indent-blankline.nvim'
 
@@ -80,10 +90,6 @@ return require('packer').startup(function(use)
   use({
     'lewis6991/gitsigns.nvim',
     --tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
-  })
-
-  use({
-    'p00f/nvim-ts-rainbow',
   })
 
   use 'simrat39/rust-tools.nvim'
