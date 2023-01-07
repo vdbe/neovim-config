@@ -23,6 +23,9 @@ vim.opt.scrolloff = 5
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
 vim.opt.cmdheight = 1
 
 vim.opt.updatetime = 50
