@@ -71,6 +71,15 @@ return require('packer').startup(function(use)
       require("fidget").setup()
     end,
   })
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require('trouble').setup {
+        use_diagnostic_signs = true,
+      }
+    end
+  }
 
   use {
     'windwp/nvim-autopairs',

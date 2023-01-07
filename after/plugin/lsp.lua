@@ -2,6 +2,14 @@ local lsp = require('lsp-zero')
 local cmp = require('cmp')
 
 lsp.preset('recommended')
+lsp.set_preferences({
+  set_lsp_keymaps = {
+    omit = {
+      'gr',
+      '<F4>',
+    }
+  },
+})
 
 lsp.nvim_workspace()
 
@@ -28,9 +36,26 @@ lsp.on_attach(function(client, bufnr)
   local bind = vim.keymap.set
 
   bind('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-  bind('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+  bind('n', '<leader>a', '<cmd>CodeActionMenu<cr>', opts)
   bind('n', '<leader>bf', '<cmd>LspZeroFormat<cr>', opts)
   bind('v', '<leader>f', '<cmd>LspZeroFormat<cr>', opts)
+
+  bind("n", "<leader>xx", "<cmd>TroubleToggle<cr>",
+    { silent = true, noremap = true, desc = "Toggle trouble diagnostics" }
+  )
+  bind("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>",
+    { silent = true, noremap = true, desc = "Toggle trouble workspace diagnostics" }
+  )
+  bind("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
+    { silent = true, noremap = true, desc = "Toggle trouble document diagnostics" }
+  )
+  bind("n", "gr", "<cmd>TroubleToggle lsp_references<cr>",
+    { remap = true, desc = "Toggle trouble lsp references" }
+  )
+
+  bind('i', '<C-k>', vim.lsp.buf.signature_help, opts)
+
+
   bind('n', '<space>tl', function()
     require('lsp_lines').toggle()
     vim.diagnostic.config({ virtual_text = not vim.diagnostic.config().virtual_text })
@@ -40,18 +65,10 @@ end)
 
 local rust_lsp = lsp.build_options('rust_analyzer', {})
 
-lsp.setup()
-
 -- Initialize rust_analyzer with rust-tools
 require('rust-tools').setup({ server = rust_lsp })
 
-vim.diagnostic.config({
-  update_in_insert = true,
-  underline = true,
-  severity_sort = true,
-  virtual_text = true,
-  virtual_lines = false,
-})
+lsp.setup()
 
 cmp.setup(cmp_config)
 
@@ -76,4 +93,13 @@ cmp.setup.cmdline(':', {
   }, {
     { name = 'cmdline' }
   }),
+})
+
+vim.diagnostic.config({
+  update_in_insert = true,
+  underline = true,
+  severity_sort = true,
+  signs = true,
+  virtual_text = true,
+  virtual_lines = false,
 })
