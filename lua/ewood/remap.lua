@@ -26,7 +26,7 @@ vim.keymap.set({ 'n' }, '<leader>wH', '<cmd>wincmd H<CR>', { desc = "Move curren
 vim.keymap.set({ 'n' }, '<leader>wJ', '<cmd>wincmd J<CR>', { desc = "Move current window to the very bottom" })
 vim.keymap.set({ 'n' }, '<leader>wK', '<cmd>wincmd K<CR>', { desc = "Move current window to the very top" })
 vim.keymap.set({ 'n' }, '<leader>wL', '<cmd>wincmd L<CR>', { desc = "Move current window to the far right" })
-vim.keymap.set({ 'n' }, '<leader>wL', '<cmd>wincmd T<CR>', { desc = "Move current window to a new tab page" })
+vim.keymap.set({ 'n' }, '<leader>wT', '<cmd>wincmd T<CR>', { desc = "Move current window to a new tab page" })
 
 -- Window resizing
 -- TODO: Figure how how to use count in keybinds
