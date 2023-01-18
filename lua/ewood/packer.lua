@@ -104,8 +104,7 @@ return require('packer').startup(function(use)
     --tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
   })
 
-  --use 'simrat39/rust-tools.nvim'
-  use 'kdarkhan/rust-tools.nvim'
+  use 'simrat39/rust-tools.nvim'
   use({
     'saecki/crates.nvim',
     --event = { "BufRead Cargo.toml" },
