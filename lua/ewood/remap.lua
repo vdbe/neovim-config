@@ -1,5 +1,8 @@
 vim.keymap.set({ '!' }, 'jk', [[<c-\><c-n>]], { desc = 'Exit to normal mode', })
 
+vim.keymap.set({ 'n' }, '<leader>,e', ':e <C-R>=expand("%:p:h") . "/" <CR>', { desc = "Edit current directory" })
+vim.keymap.set({ 'n' }, '<leader>,r', ':r <C-R>=expand("%:p:h") . "/" <CR>', { desc = "Read current directory" })
+
 -- Move lines in visual mode with J/K
 vim.keymap.set({ 'v' }, "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
 vim.keymap.set({ 'v' }, "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
