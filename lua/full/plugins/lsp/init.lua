@@ -146,7 +146,6 @@ return {
         sources = {
           -- nls.builtins.formatting.prettierd,
           nls.builtins.formatting.stylua,
-          nls.builtins.diagnostics.flake8,
         },
       }
     end,
@@ -160,10 +159,9 @@ return {
     keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
     opts = {
       ensure_installed = {
-        --"stylua",
-        --"shellcheck",
-        --"shfmt",
-        --"flake8",
+        "stylua",
+        "shellcheck",
+        "shfmt",
       },
     },
     ---@param opts MasonSettings | {ensure_installed: string[]}

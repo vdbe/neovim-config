@@ -47,10 +47,9 @@ return {
               end
 
               require("full.util").on_attach(function(client, buffer)
-            -- stylua: ignore
-            if client.name == "taplo" then
-              vim.keymap.set("n", "K", show_documentation, { buffer = buffer })
-            end
+                if client.name == "taplo" then
+                  vim.keymap.set("n", "<c-k>", show_documentation, { buffer = buffer })
+                end
               end)
               return false -- make sure the base implementation calls taplo.setup
             end,
