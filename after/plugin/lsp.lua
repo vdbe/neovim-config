@@ -49,6 +49,9 @@ lsp.on_attach(function(client, bufnr)
   bind("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>",
     { silent = true, noremap = true, desc = "Toggle trouble document diagnostics" }
   )
+  bind("n", "<leader>xt", "<cmd>TroubleToggle lsp_type_definitions<cr>",
+    { silent = true, noremap = true, desc = "Toggle trouble type definitions" }
+  )
   bind("n", "gr", "<cmd>TroubleToggle lsp_references<cr>",
     { remap = true, desc = "Toggle trouble lsp references" }
   )

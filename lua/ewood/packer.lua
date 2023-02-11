@@ -80,11 +80,21 @@ return require('packer').startup(function(use)
       }
     end
   }
+  use "mfussenegger/nvim-dap"
 
   use {
     'windwp/nvim-autopairs',
     config = function() require("nvim-autopairs").setup { check_ts = true } end
   }
+  use({
+    "kylechui/nvim-surround",
+    --tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
+  })
   use 'lukas-reineke/indent-blankline.nvim'
 
   use 'numToStr/Comment.nvim'

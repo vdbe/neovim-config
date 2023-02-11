@@ -1,4 +1,4 @@
-vim.keymap.set({ '!' }, 'jk', [[<c-\><c-n>]], { desc = 'Exit to normal mode', })
+vim.keymap.set({ '!', 't' }, 'jk', [[<c-\><c-n>]], { desc = 'Exit to normal mode', })
 
 vim.keymap.set({ 'n' }, '<leader>,e', ':e <C-R>=expand("%:p:h") . "/" <CR>', { desc = "Edit current directory" })
 vim.keymap.set({ 'n' }, '<leader>,r', ':r <C-R>=expand("%:p:h") . "/" <CR>', { desc = "Read current directory" })
