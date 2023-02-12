@@ -30,9 +30,6 @@ return {
     "jose-elias-alvarez/null-ls.nvim",
     ft = "python",
     module = true,
-    cond = function()
-      return vim.o.filetype == "python"
-    end,
     dependencies = { "Saecki/crates.nvim" },
     opts = function(_, opts)
       local nls = require("null-ls")

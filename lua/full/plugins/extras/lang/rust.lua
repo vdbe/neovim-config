@@ -1,3 +1,18 @@
+function dump(o)
+  if type(o) == "table" then
+    local s = "{ "
+    for k, v in pairs(o) do
+      if type(k) ~= "number" then
+        k = '"' .. k .. '"'
+      end
+      s = s .. "[" .. k .. "] = " .. dump(v) .. ","
+    end
+    return s .. "} "
+  else
+    return tostring(o)
+  end
+end
+
 return {
   -- step backadd rust to treesitter
   {
@@ -60,7 +75,7 @@ return {
     config = true,
   },
 
-  ---- correctly setup lspconfig
+  -- correctly setup lspconfig
   {
     "simrat39/rust-tools.nvim",
     dependencies = {
@@ -126,5 +141,21 @@ return {
 
       require("rust-tools").setup(opts)
     end,
+  },
+
+  -- godbolt
+  {
+    "p00f/godbolt.nvim",
+    opts = {
+      languages = {
+        rust = {
+          -- TODO: Find a way to use the latest default compiler
+          compiler = "r1670",
+          options = {
+            userArguments = "-C opt-level=2",
+          },
+        },
+      },
+    },
   },
 }
