@@ -1,5 +1,5 @@
 return {
-  -- add python to treesitter
+  -- add lua to treesitter
   {
     "nvim-treesitter/nvim-treesitter",
     ft = "lua",
@@ -11,7 +11,7 @@ return {
     end,
   },
 
-  -- correctly setup mason lsp / debug extensions
+  -- correctly setup mason lsp
   {
     "williamboman/mason.nvim",
     ft = "lua",

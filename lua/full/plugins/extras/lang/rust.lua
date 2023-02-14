@@ -120,7 +120,7 @@ return {
     config = function(_, opts)
       require("full.util").on_attach(function(client, buffer)
         if client.name == "rust_analyzer" then
-          vim.keymap.set("n", "K", "<CMD>RustHoverActions<CR>", { buffer = buffer })
+          vim.keymap.set("n", "<c-k>", "<CMD>RustHoverActions<CR>", { buffer = buffer })
         end
       end)
 
@@ -149,7 +149,7 @@ return {
     opts = {
       languages = {
         rust = {
-          -- TODO: Find a way to use the latest default compiler
+          -- TODO: Find a way to use the latest default compuiler
           compiler = "r1670",
           options = {
             userArguments = "-C opt-level=2",
