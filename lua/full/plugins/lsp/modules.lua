@@ -4,5 +4,6 @@ return {
   { import = "full.plugins.extras.lang.yaml" },
   { import = "full.plugins.extras.lang.python" },
   { import = "full.plugins.extras.lang.docker" },
+  { import = "full.plugins.extras.lang.nix" },
   --{ import = "full.plugins.extras.lang.asm" },
 }
