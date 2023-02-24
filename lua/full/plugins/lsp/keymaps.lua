@@ -5,11 +5,13 @@ M._keys = nil
 
 ---@return (LazyKeys|{has?:string})[]
 function M.get()
-  local format = require("full.plugins.lsp.format").format
+  local format = require("full.plugins.lsp.format")
   if not M._keys then
     ---@class PluginLspKeys
     -- stylua: ignore
     M._keys = {
+        { "<leader>td", require('full.util').toggle_diagnostics,   desc = "Toggle Diagnostics" },
+        { "<leader>tf", format.toggle,                             desc = "Toggle Auto Format" },
         { "<leader>cd", vim.diagnostic.open_float,                 desc = "Line Diagnostics" },
         { "<leader>cl", "<cmd>LspInfo<cr>",                        desc = "Lsp Info" },
         { "gd",         "<cmd>Telescope lsp_definitions<cr>",      desc = "Goto Definition" },
@@ -29,8 +31,8 @@ function M.get()
         --{ "<leader>ca", vim.lsp.buf.code_action,                   desc = "Code Action",         mode = { "n", "v" },       has = "codeAction" },
         { "<leader>ca", "<cmd>CodeActionMenu<cr>",                 desc = "Code Action",         mode = { "n", "v" },       has = "codeAction" },
         { "<leader>a",  "<cmd>CodeActionMenu<cr>",                 desc = "Code Action",         mode = { "n", "v" },       has = "codeAction" },
-        { "<leader>cf", format,                                    desc = "Format Document",     has = "documentFormatting" },
-        { "<leader>cf", format,                                    desc = "Format Range",        mode = "v",                has = "documentRangeFormatting" },
+        { "<leader>cf", format.format,                             desc = "Format Document",     has = "documentFormatting" },
+        { "<leader>cf", format.format,                             desc = "Format Range",        mode = "v",                has = "documentRangeFormatting" },
     }
     if require("full.util").has("inc-rename.nvim") then
       M._keys[#M._keys + 1] = {
